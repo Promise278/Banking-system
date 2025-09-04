@@ -81,10 +81,9 @@ function changePin() {
                 console.log(chalk.red("PIN must be exactly 4 digits."));
                 return changePin();
             }
+            currentUser.pin = newPin;
+            console.log(chalk.green("PIN changed successfully!"));
         })
-
-        currentUser.pin = newPin;
-    console.log(chalk.green("PIN changed successfully!"));
     })
 }
 
