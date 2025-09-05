@@ -54,6 +54,10 @@ function transferMoney() {
     rl.question("Enter recipient name: ", (recipientName) => {
         rl.question("Enter amount to transfer: ", (amt) => {
             let amount = Number(amt);
+            if (currentUser.balance < amount) {
+                console.log(chalk.red("Insufficient balance."));
+                return transferMoney();
+            }
             currentUser.balance -= amount;
             console.log(chalk.green(`You received ${amount} from ${recipientName}`))
             console.log(chalk.yellow(`Your new balance: ${currentUser.balance}`));
@@ -64,7 +68,7 @@ function transferMoney() {
 }
 
 function notification() {
-    rl.setPrompt(`Recieved successfully from ${currentUser.name}`)
+    rl.setPrompt(chalk.magenta(`Recieved successfully from ${currentUser.name}`))
     rl.prompt()
 }
 
