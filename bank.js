@@ -11,7 +11,7 @@ const rl = readline.createInterface({
 let currentUser = null;
 
 if (!fs.existsSync("customers.json")) {
-    fs.writeFileSync("customers.json");
+    fs.writeFileSync("customers.json", "");
 }
 
 console.log("\n=== CraftCash Banking System ===")
